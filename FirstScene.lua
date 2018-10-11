@@ -55,9 +55,9 @@ function scene:create( event )
 	--Displaying Complaint icon and text
 	Complaint = display.newText("Complaint",display.contentCenterX*1.35,display.contentCenterY*1.27, "Comic Sans MS", 25)
 	sceneGroup:insert(Complaint)
-	myImage = display.newImage("Contact6.png", display.contentCenterX*1.40, display.contentCenterY*1.1 )
-	sceneGroup:insert(myImage)
-	myImage:addEventListener("tap", complaint)
+	myImage2 = display.newImage("Contact6.png", display.contentCenterX*1.40, display.contentCenterY*1.1 )
+	sceneGroup:insert(myImage2)
+	myImage2:addEventListener("tap", complaint)
 
 
 	--Adding Timer in this app which display how long a user is seing the app

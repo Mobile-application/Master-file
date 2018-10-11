@@ -174,7 +174,7 @@ local button1 = widget.newButton(
         left = 100,
         top = 350,
         id = "button1",
-		defaultFile = "LoginButton.png",
+		defaultFile = "loginButton.png",
         --label = "Login",
         onEvent = handleButtonEvent
     }
