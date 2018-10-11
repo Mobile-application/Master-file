@@ -7,9 +7,6 @@ local scene = composer.newScene()
 -- the scene is removed entirely (not recycled) via "composer.removeScene()"
 -- -----------------------------------------------------------------------------------
  
- 
- 
- 
 -- -----------------------------------------------------------------------------------
 -- Scene event functions
 -- -----------------------------------------------------------------------------------
@@ -17,59 +14,50 @@ local scene = composer.newScene()
  --adding a button which brings back user from myDetails to Home.
 local function Home ()	
 composer.gotoScene("FirstScene",{effect = "slideLeft", time = 500})
-
 end
 
---sending user to LR1 file for a brief description about this act
-local function LR1 ()	
-composer.gotoScene("LR1",{effect = "slideLeft", time = 500})
+--sending user to Legal Rights file for description
 
+--sending user to privacy_act file for a brief description about this act
+local function privacy_act ()	
+composer.gotoScene("privacy_act",{effect = "slideLeft", time = 500})
 end
 
---sending user to LR2 file for a brief description about this act
-local function LR2 ()	
-composer.gotoScene("LR2",{effect = "slideLeft", time = 500})
+--sending user to telecommunication_act file for a brief description about this act
+local function telecommunication_act ()	
+composer.gotoScene("telecommunication_act",{effect = "slideLeft", time = 500})
 end
 
---sending user to LR3 file for a brief description about this act
-local function LR3 ()	
-composer.gotoScene("LR3",{effect = "slideLeft", time = 500})
+--sending user to wa_act file for a brief description about this act
+local function wa_act ()	
+composer.gotoScene("wa_act",{effect = "slideLeft", time = 500})
 end
 
---sending user to LR4 file for a brief description about this act
-local function LR4 ()	
-composer.gotoScene("LR4",{effect = "slideLeft", time = 500})
+--sending user to listening_act file for a brief description about this act
+local function listening_act ()	
+composer.gotoScene("listening_act",{effect = "slideLeft", time = 500})
 end
 
---sending user to LR5 file for a brief description about this act
-local function LR5 ()	
-composer.gotoScene("LR5",{effect = "slideLeft", time = 500})
+--sending user to nsw_act file for a brief description about this act
+local function nsw_act ()	
+composer.gotoScene("nsw_act",{effect = "slideLeft", time = 500})
 end
 
---sending user to LR6 file for a brief description about this act
-local function LR6 ()	
-composer.gotoScene("LR6",{effect = "slideLeft", time = 500})
+--sending user to nt_act file for a brief description about this act
+local function nt_act ()	
+composer.gotoScene("nt_act",{effect = "slideLeft", time = 500})
 end
 
---sending user to LR7 file for a brief description about this act
-local function LR7 ()	
-composer.gotoScene("LR7",{effect = "slideLeft", time = 500})
+--sending user to qld_act file for a brief description about this act
+local function qld_act ()	
+composer.gotoScene("qld_act",{effect = "slideLeft", time = 500})
 end
 
---sending user to LR8 file for a brief description about this act
-local function LR8 ()	
-composer.gotoScene("LR8",{effect = "slideLeft", time = 500})
+--sending user to tas_act file for a brief description about this act
+local function tas_act ()	
+composer.gotoScene("tas_act",{effect = "slideLeft", time = 500})
 end
 
---sending user to LR8 file for a brief description about this act
-local function LR9 ()	
-composer.gotoScene("LR9",{effect = "slideLeft", time = 500})
-end
-
---sending user to LR8 file for a brief description about this act
-local function LR10 ()	
-composer.gotoScene("LR10",{effect = "slideLeft", time = 500})
-end
 
 local widget = require ("widget")
 local Privacy
@@ -80,20 +68,18 @@ local ACT
 local NSW
 local NT
 local Qld
-local SA
 local Tas
-local Vic
  
 -- create()
 function scene:create( event )
  
     local sceneGroup = self.view
 	
+	--showing a background
 	background = display.newImage( "background3.png", display.contentCenterX, display.contentCenterY )
 	sceneGroup:insert(background)
 	
 	HomeImage = display.newImage("HomeIcon.png", 280, 20 )
-	--myImage:translate(140,450)
 	sceneGroup:insert(HomeImage)
 	HomeImage:addEventListener("tap", Home)
 	
@@ -101,7 +87,9 @@ function scene:create( event )
 	head = display.newText("Legal Rights Information", display.contentCenterX*0.90,display.contentCenterY*0.10,"Arial",20)
 	head:setFillColor(1,0,0)
 	sceneGroup:insert(head)
+	
 	--creating buttons for all legal rights
+	-- creating button for privacy_act
 	Privacy = widget.newButton(
 	{
 		id = "Privacy",
@@ -110,24 +98,36 @@ function scene:create( event )
 		emboss = false,
 		left = 20,
 		top = 80,
+		fontSize = 16.5,
+		shape = "roundedRect",
+		width = 270,
+		height = 30,
+		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
 	sceneGroup:insert(Privacy)
-	Privacy:addEventListener ("touch", LR1)
+	Privacy:addEventListener ("touch", privacy_act)
 	
+	-- creating button for telecommunication_act
 	Telecommunication = widget.newButton(
 	{
 		id = "Telecommunication",
-		label = "Telecommunication(interception and access) act 1979",
+		label = "Telecommunication  (interception and  \n     access) act 1979",
 		onEvent = myeventListener,
 		emboss = false,
 		left = 20,
-		top = 120,
+		top = 118,
+		fontSize = 16.5,
+		shape = "roundedRect",
+		width = 290,
+		height = 30,
+		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
 	sceneGroup:insert(Telecommunication)
-	Telecommunication:addEventListener ("touch", LR2)	
+	Telecommunication:addEventListener ("touch", telecommunication_act)	
 	
+	-- creating button for wa_act
 	WA = widget.newButton(
 	{
 		id = "WA",
@@ -136,11 +136,17 @@ function scene:create( event )
 		emboss = false,
 		left = 20,
 		top = 160,
+		fontSize = 16.5,
+		shape = "roundedRect",
+		width = 300,
+		height = 30,
+		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
 	sceneGroup:insert(WA)
-	WA:addEventListener ("touch", LR3)
+	WA:addEventListener ("touch", wa_act)
 	
+	-- creating button for listening_act
 	ACT = widget.newButton(
 	{
 		id = "ACT",
@@ -149,11 +155,17 @@ function scene:create( event )
 		emboss = false,
 		left = 20,
 		top = 200,
+		fontSize = 16.5,
+		shape = "roundedRect",
+		width = 290,
+		height = 30,
+		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
 	sceneGroup:insert(ACT)
-	ACT:addEventListener ("touch", LR4)
+	ACT:addEventListener ("touch", listening_act)
 
+	-- creating button for nsw_act
 	NSW = widget.newButton(
 	{
 		id = "NSW",
@@ -161,12 +173,17 @@ function scene:create( event )
 		onEvent = myeventListener,
 		emboss = false,
 		left = 20,
-		top = 240,
+		top = 240,fontSize = 16.5,
+		shape = "roundedRect",
+		width = 320,
+		height = 30,
+		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
 	sceneGroup:insert(NSW)
-	NSW:addEventListener ("touch", LR5)
+	NSW:addEventListener ("touch", nsw_act)
 	
+	-- creating button for nt_act
 	NT = widget.newButton(
 	{
 		id = "NT",
@@ -175,11 +192,17 @@ function scene:create( event )
 		emboss = false,
 		left = 20,
 		top = 280,
+		fontSize = 16.5,
+		shape = "roundedRect",
+		width = 300,
+		height = 30,
+		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
 	sceneGroup:insert(NT)
-	NT:addEventListener ("touch", LR6)
+	NT:addEventListener ("touch", nt_act)
 	
+	-- creating button for qld_act
 	Qld = widget.newButton(
 	{
 		id = "Qld",
@@ -188,24 +211,17 @@ function scene:create( event )
 		emboss = false,
 		left = 20,
 		top = 320,
+		fontSize = 16.5,
+		shape = "roundedRect",
+		width = 290,
+		height = 30,
+		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
 	sceneGroup:insert(Qld)
-	Qld:addEventListener ("touch", LR7)
+	Qld:addEventListener ("touch", qld_act)
 		
-	SA = widget.newButton(
-	{
-		id = "SA",
-		label = "The Listening and Surveillance Devices Act 1972 (SA)",
-		onEvent = myeventListener,
-		emboss = false,
-		left = 20,
-		top = 360,
-	}
-	)
-	sceneGroup:insert(SA)
-	SA:addEventListener ("touch", LR8)
-			
+	-- creating button for tas_act		
 	Tas = widget.newButton(
 	{
 		id = "Tas",
@@ -213,61 +229,20 @@ function scene:create( event )
 		onEvent = myeventListener,
 		emboss = false,
 		left = 20,
-		top = 400,
+		top = 360,
+		fontSize = 16.5,
+		shape = "roundedRect",
+		width = 300,
+		height = 30,
+		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
 	sceneGroup:insert(Tas)
-	Tas:addEventListener ("touch", LR9)
-		
-	Vic = widget.newButton(
-	{
-		id = "Vic",
-		label = "The Surveillance Devices Act 1991 (Vic)",
-		onEvent = myeventListener,
-		emboss = false,
-		left = 20,
-		top = 440,
-	}
-	)
-	sceneGroup:insert(Vic)
-	Vic:addEventListener ("touch", LR10)
+	Tas:addEventListener ("touch", tas_act)
+	
 				
 end
-	--[[Path for the file to read
-	local path = system.pathForFile( "file.txt", system.ResourceDirectory )
-	 
-	-- Open the file handle
-	local file, errorString = io.open( path, "r" )
-	 
-	if not file then
-		-- Error occurred; output the cause
-		print( "File error: " .. errorString )
-	else
-		-- Output lines
-		for line in file:lines() do
-		
-			print( line )
-			
-			local options = {
-			   text = line,
-			   x = display.contentCenterX,
-			   y = display.contentCenterY,
-			   fontSize = 24,
-			   width = 280,
-			   height = 220,
-			   align = "left"
-			}
-	 
-			local textBox = display.newText( options )
-			textBox:setFillColor( 0, 0, 0 )
-			sceneGroup:insert(textBox)
-			
-		end
-		-- Close the file handle
-		io.close( file )
-	end--]]
 
- 
  
 -- show()
 function scene:show( event )
