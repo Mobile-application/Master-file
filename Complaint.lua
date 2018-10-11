@@ -2,28 +2,34 @@ local composer = require( "composer" )
  
 local scene = composer.newScene()
 
+-- -----------------------------------------------------------------------------------
+-- Scene event functions
+-- -----------------------------------------------------------------------------------
+ 
+ --adding a button which brings back user from myDetails to Home.
 local function Home ()	
 composer.gotoScene("FirstScene",{effect = "slideLeft", time = 500})
-
-end
-local function complaintINFO()	
-composer.gotoScene("complaintINFO1",{effect = "slideLeft", time = 500})
-
 end
 
-local function complaintUNKNOWN()	
-composer.gotoScene("complaintINFO2",{effect = "slideLeft", time = 500})
+--adding a button which brings user to complaint page
+local function complaint_info()	
+composer.gotoScene("complaint_info",{effect = "slideLeft", time = 500})
+end
 
+--adding a button which brings user to complaint page
+local function complaint_unknown()	
+composer.gotoScene("complaint_unknown",{effect = "slideLeft", time = 500})
 end
 
 
 local widget = require ("widget")
 
-
+--create() 
 function scene:create( event )
  
     local sceneGroup = self.view
 	
+	--showing a backgroynd
 	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight)
 	bg:setFillColor( 1,1 , 1)
 	
@@ -34,7 +40,6 @@ function scene:create( event )
 	
 	
 	HomeImage = display.newImage("HomeIcon.png", 280, 20 )
-	--myImage:translate(140,450)
 	sceneGroup:insert(HomeImage)
 	HomeImage:addEventListener("tap", Home)
 	
@@ -42,7 +47,9 @@ function scene:create( event )
 	head = display.newText("Make a complaint", display.contentCenterX*0.90,display.contentCenterY*0.05,"Arial",26)
 	head:setFillColor(1,1,1)
 	sceneGroup:insert(head)
+	
 	--creating buttons for complaint 
+	--creating button for known breaches
 	breaches = widget.newButton(
 	{
 		id = "breach",
@@ -59,11 +66,13 @@ function scene:create( event )
 	}
 	)
 	sceneGroup:insert(breaches)
-	breaches:addEventListener ("touch", complaintINFO)
+	breaches:addEventListener ("touch", complaint_info)
+	
+	--creating button for unknown breaches
 	UnknownBreaches = widget.newButton(
 	{
 		id = "unknownBreaches",
-		label = "Breaches from unknown \n             resouces",
+		label = "Breaches from unknown \n              sources",
 		onEvent = myeventListener,
 		fontSize = 24,
 		emboss = false,
@@ -76,14 +85,9 @@ function scene:create( event )
 	}
 	)
 	sceneGroup:insert(UnknownBreaches)
-	UnknownBreaches:addEventListener ("touch", complaintUNKNOWN)	
+	UnknownBreaches:addEventListener ("touch", complaint_unknown)	
+	
 end 
-
-
-
-
-
-
 
 
 -- show()
