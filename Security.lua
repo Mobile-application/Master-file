@@ -58,6 +58,7 @@ function scene:create( event )
 				r:startRecording()
 				if r:isRecording() == false then
 					r:setSampleRate() --sets Sample to rate to default at 44100Hz
+					r:startRecording()
 				end
 			end
 		end
