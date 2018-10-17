@@ -46,10 +46,10 @@ function scene:create( event )
     local sceneGroup = self.view
 	
 	--adding background
-	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight)
+	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,600,display.contentHeight)
 	bg:setFillColor( 1,1 , 1)
 	
-	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,65)
+	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,90)
 	bg2:setFillColor(0.823529 ,0.411765 ,0.117647)
 	sceneGroup:insert(bg)
 	sceneGroup:insert(bg2)
@@ -89,7 +89,7 @@ if not file then
 			   y = 150,
 			   fontSize = native.SystemFont,
 			   width = 280,
-			   height = 220,
+			   height = 200,
 			   align = "left"
 			}
 			local textBox = display.newText( surveyText)
@@ -114,7 +114,7 @@ if not file then
 		onEvent = myeventListener,
 		emboss = false,
 		x = display.contentCenterX,
-		y = 220,
+		y = 230,
 		width=220,
 		shape = "roundedRect",
 		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
@@ -149,7 +149,7 @@ if not file then
 			   y = 370,
 			   fontSize = native.SystemFont,
 			   width = 280,
-			   height = 220,
+			   height = 210,
 			   align = "left"
 			}
 			local textBox = display.newText( surveyText)
@@ -166,7 +166,7 @@ if not file then
 		onEvent = myeventListener,
 		emboss = false,
 		x = display.contentCenterX,
-		y = 430,
+		y = 450,
 		width=220,
 		shape = "roundedRect",
 		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }

@@ -46,10 +46,10 @@ function scene:create( event )
     local sceneGroup = self.view
 	
 	--adding background
-	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight)
+	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,700,display.contentHeight)
 	bg:setFillColor( 1,1 , 1)
 	
-	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,65)
+	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,90)
 	bg2:setFillColor(0.823529 ,0.411765 ,0.117647)
 	sceneGroup:insert(bg)
 	sceneGroup:insert(bg2)
@@ -64,7 +64,7 @@ function scene:create( event )
 	sceneGroup:insert(backImage)
 	backImage:addEventListener("tap", complaint)
 	
-	head = display.newText("Complaint", display.contentCenterX*0.90,display.contentCenterY*0.05,"Arial",25)
+	head = display.newText("Make a Complaint", display.contentCenterX*0.90,display.contentCenterY*0.05,"Arial",25)
 	head:setFillColor(1,1,1)
 	sceneGroup:insert(head)
 	
