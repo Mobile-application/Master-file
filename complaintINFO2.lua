@@ -100,7 +100,7 @@ if not file then
 	local surveyLink = widget.newButton(
 	{
 		id = "link",
-		label = "Click here to make\n      a complaint",
+		label = "Click here to complain",
 		onEvent = myeventListener,
 		emboss = false,
 		x = display.contentCenterX,

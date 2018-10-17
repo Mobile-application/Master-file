@@ -19,7 +19,6 @@ local widget = require( "widget" )
  
  
  
- 
 -- -----------------------------------------------------------------------------------
 -- Scene event functions
 -- -----------------------------------------------------------------------------------
@@ -150,17 +149,23 @@ local function handleButtonEvent( event )
 		--		Mobile1= db:nrows("SELECT * FROM Mobile")
 		for row in db:nrows("SELECT * FROM Mobile") do
 			print("N:",row.Name)
-			if( NameBox.text==row.Name and NumberBox.text==row.Number) then
+			if
+			( NameBox.text=="" or NumberBox.text=="") or (NameBox.text==row.Name and NumberBox.text~=row.Number)  then
+				WrongDetails = display.newText( "Wrong Details, Try again", 130, 140, native.systemFont, 14 )
+				WrongDetails:setFillColor(1,0,0)
+				sceneGroup:insert(WrongDetails)
+			
+				elseif 
+				( NameBox.text==row.Name and NumberBox.text==row.Number) then
 				
 				NameBox.isVisible = false
 				NumberBox.isVisible = false
 				
+				
 				composer.gotoScene( "FirstScene" , { effect="fade", time=500 })
 				
-			else
-				WrongDetails = display.newText( "Wrong Details, Try again", 130, 140, native.systemFont, 14 )
-				WrongDetails:setFillColor(1,0,0)
-				sceneGroup:insert(WrongDetails)
+		
+			      
 			end
 		end
 			
@@ -174,7 +179,7 @@ local button1 = widget.newButton(
         left = 100,
         top = 350,
         id = "button1",
-		defaultFile = "loginButton.png",
+		defaultFile = "LoginButton.png",
         --label = "Login",
         onEvent = handleButtonEvent
     }
@@ -196,9 +201,8 @@ local Register = widget.newButton(
 		strokeColor = { default={192,192,192}, over={0.2,0.2,1,1} },
         strokeWidth = 2,
         id = "register",
-		--fillColor = { default={1,0,0,1}, over={1,0.1,0.7,0.4} },
-        --strokeColor = { default={1,0.4,0,1}, over={0.8,0.8,1,1} },
         label = "Register",
+		fillColor = {default={1,0.1,0.7,0.4}, over={1,1,1,1} }
         
     }
 )

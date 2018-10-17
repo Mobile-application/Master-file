@@ -8,7 +8,6 @@ local scene = composer.newScene()
  --sending user back to the Home Screen 
 local function Back ()	
 composer.gotoScene("Login",{effect = "slideLeft", time = 500})
-
 end 
 
  	-- Open "data.db". If the file doesn't exist, it will be created
@@ -90,7 +89,16 @@ local function handleButtonEvent( event )
 		
 		--composer.gotoScene( "sample" , { effect="fade", time=500 })
         print( "New Details inserted into the Database" )
-		RegisterDisplay = display.newText( "User Registered", 155, 210, native.systemFont, 30 )
+		
+	     if( NameBox.text=="" or NumberBox.text=="" or EmailBox.text=="") then
+				
+				WDetails = display.newText( "Please enter details!",display.contentCenterX,display.contentCenterY*0.30, native.systemFont, 20 )
+				WDetails:setFillColor(1,0,1)
+				sceneGroup:insert(WDetails)
+		else 
+		composer.gotoScene( "FirstScene" , { effect="fade", time=500 })		
+		--RegisterDisplay = display.newText( "User Registered", 155, 210, native.systemFont, 30 )
+		
 		--NameBox.isEditable = false
 		
 		--hiding the form once user successfully Registered
@@ -103,6 +111,7 @@ local function handleButtonEvent( event )
 		EmailBox.isVisible=false
 		
 		Submit.isVisible=false
+		
 		
 		--Redirecting user to the Login Page
 		-- Create the widget
@@ -121,6 +130,7 @@ local function handleButtonEvent( event )
 	)
 	sceneGroup:insert(LoginNow)
     end
+	end
 end
  
  
@@ -134,7 +144,7 @@ end
 	sceneGroup:insert(background)
 	
 	--Adding Welcome Message
-	Welcome = display.newText("Fill Form",display.contentCenterX,display.contentCenterY*0.20, "Comic Sans MS", 40)
+	Welcome = display.newText("Fill Form",display.contentCenterX,display.contentCenterY*0.10, "Comic Sans MS", 40)
 	sceneGroup:insert(Welcome)
 	
     -- Code here runs when the scene is first created but has not yet appeared on screen

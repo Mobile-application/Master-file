@@ -10,6 +10,10 @@ local function homepage ()
 	composer.gotoScene("FirstScene",{effect = "slideLeft", time = 500})
 end
 
+local function CameraInfo()
+  composer.gotoScene("CameraInfo",{effect = "slideLeft", time = 500})
+end 
+
 
 
 local widget = require ("widget")
@@ -25,6 +29,13 @@ function scene:create( event )
 	bg2:setFillColor(0.823529 ,0.411765 ,0.117647)
 	sceneGroup:insert(bg)
 	sceneGroup:insert(bg2)
+	--Displaying Camera security icon and text
+	Complaint = display.newText("Camera\n  Privacy",display.contentCenterX*0.50,display.contentCenterY*0.75, "Helvetica", 16)
+	Complaint:setFillColor(1,0,0)
+	sceneGroup:insert(Complaint)
+	CameraIcon = display.newImage("CameraPrivacy.png", display.contentCenterX*0.45, display.contentCenterY*0.50)
+	sceneGroup:insert(CameraIcon)
+	CameraIcon:addEventListener("tap", CameraInfo)
 	
 	backImage = display.newImage("back.png", 30, -7 )
 	--myImage:translate(140,450)
@@ -136,5 +147,4 @@ scene:addEventListener( "destroy", scene )
 -- -----------------------------------------------------------------------------------
  
 return scene
-
 
