@@ -22,20 +22,14 @@ function scene:create( event )
     local sceneGroup = self.view
 	
 	--showing a backgroynd
-	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight)
+	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,600,display.contentHeight)
 	bg:setFillColor( 1,1 , 1)
 	
-	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,70)
+	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,90)
 	bg2:setFillColor(0.823529 ,0.411765 ,0.117647)
 	sceneGroup:insert(bg)
 	sceneGroup:insert(bg2)
-	--Displaying Camera security icon and text
-	Complaint = display.newText("Camera\n  Privacy",display.contentCenterX*0.50,display.contentCenterY*0.75, "Helvetica", 16)
-	Complaint:setFillColor(1,0,0)
-	sceneGroup:insert(Complaint)
-	CameraIcon = display.newImage("CameraPrivacy.png", display.contentCenterX*0.45, display.contentCenterY*0.50)
-	sceneGroup:insert(CameraIcon)
-	CameraIcon:addEventListener("tap", CameraInfo)
+	
 	
 	backImage = display.newImage("back.png", 30, -7 )
 	--myImage:translate(140,450)
@@ -43,9 +37,30 @@ function scene:create( event )
 	backImage:addEventListener("tap", homepage)
 	
 	-- Code here runs when the scene is first created but has not yet appeared on screen
-	head = display.newText("Disable access to recordings  ", display.contentCenterX*1.1,display.contentCenterY*0.01,"Arial",18)
+	head = display.newText("Security Monitoring  ", display.contentCenterX*1.1,display.contentCenterY*0.01,"Arial",23)
 	head:setFillColor(1,1,1)
 	sceneGroup:insert(head)
+	
+	
+	--Displaying Camera security icon and text
+	local button = widget.newButton(
+	{
+		label = "Camera  Privacy",
+		x = display.contentCenterX,
+	    y = 300,
+		fontSize = 24,
+	    onEvent = myEventListener,
+	    shape = "roundedRect",
+		width = 300,
+		height = 60,
+		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
+
+	}
+	)
+	
+	sceneGroup:insert(button)
+	button:addEventListener("tap", CameraInfo)
+
 
 	local recordStatus -- tracks whether the microphone is on or not
 
@@ -80,7 +95,7 @@ function scene:create( event )
 	{
 	    label = "Enable Microphone Block",
 	    x = display.contentCenterX,
-	    y = display.contentCenterY,
+	    y = 150,
 		fontSize = 24,
 	    onEvent = myEventListener,
 	    shape = "roundedRect",

@@ -54,23 +54,26 @@ end
 function scene:create( event )
  
     local sceneGroup = self.view
-	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight)
-	bg:setFillColor( 0.823529 ,0.411765 ,0.117647)
+	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,600, display.contentHeight)
+	bg:setFillColor(1,1,1)
 	sceneGroup:insert(bg)
 	
+	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,90)
+	bg2:setFillColor(0.823529 ,0.411765 ,0.117647)
+	sceneGroup:insert(bg)
+	sceneGroup:insert(bg2)
 	--title of the scene LR2
-	heading = [[Camera
-		Privacy ]]
-	head = display.newText(heading, display.contentCenterX*1.0,display.contentCenterY*0.14,"Arial",18)
+	heading = [[Camera Privacy ]]
+	head = display.newText(heading, display.contentCenterX*1.00,display.contentCenterY*0.00,"Arial",23)
 	sceneGroup:insert(head)
 	
 	--home icon to send user to the home screen
-	HomeImage = display.newImage("HomeIcon.png", 280, 20 )
+	HomeImage = display.newImage("HomeIcon.png", 280, -7 )
 	sceneGroup:insert(HomeImage)
 	HomeImage:addEventListener("tap", Home)
 	
 	--sending user back to the previous screeen icon
-	BackImage = display.newImage("back.png", 25, 20 )
+	BackImage = display.newImage("back.png", 30, -7 )
 	sceneGroup:insert(BackImage)
 	BackImage:addEventListener("tap", back)
 	
