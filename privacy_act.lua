@@ -55,12 +55,12 @@ end
 function scene:create( event )
  
     local sceneGroup = self.view
-	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight)
+	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight*1.20)
 	bg:setFillColor( 0.823529 ,0.411765 ,0.117647)
 	sceneGroup:insert(bg)
 	
 	--title of the scene LR!
-	head = display.newText("Privacy Act 1988(Cth)", display.contentCenterX*0.90,display.contentCenterY*0.10,"Arial",20)
+	head = display.newText("Privacy Act 1988(Cth)", display.contentCenterX*0.90,display.contentCenterY*0.05,"Arial",20)
 	--head:setFillColor(1,0,0)
 	sceneGroup:insert(head)
 	
@@ -71,7 +71,7 @@ function scene:create( event )
 		id = "link",
 		label = "Read Online",
 		width='98',
-		height='30',
+		height='23',
 		onEvent = myeventListener,
 		emboss = false,
 		x = display.contentCenterX*0.90,
@@ -87,12 +87,12 @@ function scene:create( event )
 	Link:addEventListener("tap", hyperLink)
 	
 	--home icon to send user to the home screen
-	HomeImage = display.newImage("HomeIcon.png", 280, 20 )
+	HomeImage = display.newImage("HomeIcon.png", 280, 2 )
 	sceneGroup:insert(HomeImage)
 	HomeImage:addEventListener("tap", Home)
 	
 	--sending user back to the previous screeen icon
-	BackImage = display.newImage("back.png", 25, 20 )
+	BackImage = display.newImage("back.png", 25, 2 )
 	sceneGroup:insert(BackImage)
 	BackImage:addEventListener("tap", back)
 	

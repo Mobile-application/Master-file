@@ -52,7 +52,7 @@ function scene:create( event )
 	--Displaying Legal Rights Text and icon
 	LegalRghts = display.newText("Legal Rights",display.contentCenterX*0.90,display.contentCenterY*2.0, "Helvetica", 25)
 	sceneGroup:insert(LegalRghts)
-	myImage = display.newImage("contact3.png", 140, 445 )
+	myImage = display.newImage("Contact3.png", 140, 445 )
 	sceneGroup:insert(myImage)
 	myImage:addEventListener("tap", newscene)
 	

@@ -58,7 +58,7 @@ end
 function scene:create( event )
  
     local sceneGroup = self.view
-	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight)
+	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight*1.20)
 	bg:setFillColor( 0.823529 ,0.411765 ,0.117647)
 	sceneGroup:insert(bg)
 	
@@ -69,12 +69,12 @@ function scene:create( event )
 	sceneGroup:insert(head)
 	
 	--home icon to send user to the home screen
-	HomeImage = display.newImage("HomeIcon.png", 280, 20 )
+	HomeImage = display.newImage("HomeIcon.png", 280, 2 )
 	sceneGroup:insert(HomeImage)
 	HomeImage:addEventListener("tap", Home)
 	
 	--sending user back to the previous screeen icon
-	BackImage = display.newImage("back.png", 25, 20 )
+	BackImage = display.newImage("back.png", 25, 2 )
 	sceneGroup:insert(BackImage)
 	BackImage:addEventListener("tap", back)
 	

@@ -11,9 +11,9 @@ local scene = composer.newScene()
 -- Scene event functions
 -- -----------------------------------------------------------------------------------
  
- --adding a button which brings back user from myDetails to Home.
-local function Home ()	
-composer.gotoScene("FirstScene",{effect = "slideLeft", time = 500})
+ --adding a button which brings back user from RightsList to Firstscene.
+local function back ()	
+composer.gotoScene("FirstScene",{effect = "slideRight", time = 500})
 end
 
 --sending user to Legal Rights file for description
@@ -79,12 +79,13 @@ function scene:create( event )
 	background = display.newImage( "background3.png", display.contentCenterX, display.contentCenterY )
 	sceneGroup:insert(background)
 	
-	HomeImage = display.newImage("HomeIcon.png", 280, 20 )
-	sceneGroup:insert(HomeImage)
-	HomeImage:addEventListener("tap", Home)
+	--sending user back to the previous screeen icon
+	BackImage = display.newImage("back.png", 25, 2 )
+	sceneGroup:insert(BackImage)
+	BackImage:addEventListener("tap", back)
 	
     -- Code here runs when the scene is first created but has not yet appeared on screen
-	head = display.newText("Legal Rights Information", display.contentCenterX*0.90,display.contentCenterY*0.10,"Arial",20)
+	head = display.newText("Legal Rights Information", display.contentCenterX*1.05,display.contentCenterY*0.10,"Arial",20)
 	head:setFillColor(1,0,0)
 	sceneGroup:insert(head)
 	

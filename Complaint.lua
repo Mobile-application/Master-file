@@ -7,7 +7,7 @@ local scene = composer.newScene()
 -- -----------------------------------------------------------------------------------
  
  --adding a button which brings back user from myDetails to Home.
-local function Home ()	
+local function back ()	
 composer.gotoScene("FirstScene",{effect = "slideLeft", time = 500})
 end
 
@@ -33,18 +33,19 @@ function scene:create( event )
 	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight)
 	bg:setFillColor( 1,1 , 1)
 	
-	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,65)
+	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,80)
 	bg2:setFillColor(0.823529 ,0.411765 ,0.117647)
 	sceneGroup:insert(bg)
 	sceneGroup:insert(bg2)
 	
 	
-	HomeImage = display.newImage("HomeIcon.png", 280, 20 )
-	sceneGroup:insert(HomeImage)
-	HomeImage:addEventListener("tap", Home)
+	--sending user back to the previous screeen icon
+	BackImage = display.newImage("back.png", 25, 2 )
+	sceneGroup:insert(BackImage)
+	BackImage:addEventListener("tap", back)
 	
     -- Code here runs when the scene is first created but has not yet appeared on screen
-	head = display.newText("Make a complaint", display.contentCenterX*0.90,display.contentCenterY*0.05,"Arial",26)
+	head = display.newText("Make a complaint", display.contentCenterX*1.05,display.contentCenterY*0.05,"Arial",26)
 	head:setFillColor(1,1,1)
 	sceneGroup:insert(head)
 	
