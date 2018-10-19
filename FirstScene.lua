@@ -17,7 +17,7 @@ local myImage2
 -- -----------------------------------------------------------------------------------
 -- Code outside of the scene event functions below will only be executed ONCE unless
 -- the scene is removed entirely (not recycled) via "composer.removeScene()"
--- -----------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------------
  
 local function newscene()
   composer.gotoScene("RightsList",{effect = "slideLeft", time = 500})
@@ -31,8 +31,6 @@ local function micro_phone()
 end 
 
 
- 
- 
 -- -----------------------------------------------------------------------------------
 -- Scene event functions
 -- -----------------------------------------------------------------------------------
@@ -49,6 +47,7 @@ function scene:create( event )
 	--Adding Welcome Message
 	Welcome = display.newText("Monitoring App",display.contentCenterX,display.contentCenterY*0.40, "Helvetica", 40)
 	sceneGroup:insert(Welcome)
+	
 	--Displaying Legal Rights Text and icon
 	LegalRghts = display.newText("Legal Rights",display.contentCenterX*0.90,display.contentCenterY*2.0, "Helvetica", 25)
 	sceneGroup:insert(LegalRghts)
@@ -62,6 +61,7 @@ function scene:create( event )
 	myImage2 = display.newImage("contact6.png", display.contentCenterX*1.40, display.contentCenterY*1.1 )
 	sceneGroup:insert(myImage2)
 	myImage2:addEventListener("tap", complaint)
+	
 	--Displaying security icon and text
 	Complaint = display.newText("Security\nMonitoring",display.contentCenterX*0.50,display.contentCenterY*1.0, "Helvetica", 25)
 	sceneGroup:insert(Complaint)
@@ -71,10 +71,8 @@ function scene:create( event )
 
 
 	--Adding Timer in this app which display how long a user is seing the app
-	
 	--sceneGroup:insert(Timer)
 	
- 
 end
  
  
@@ -118,7 +116,6 @@ function scene:destroy( event )
  
 end
  
- 
 -- -----------------------------------------------------------------------------------
 -- Scene event function listeners
 -- -----------------------------------------------------------------------------------
@@ -129,5 +126,3 @@ scene:addEventListener( "destroy", scene )
 -- -----------------------------------------------------------------------------------
  
 return scene
-
-
