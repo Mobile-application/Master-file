@@ -85,6 +85,10 @@ function scene:create( event )
 				if r:isRecording() == false then
 					r:setSampleRate() --sets Sample to rate to default at 44100Hz
 					r:startRecording()
+					if r:isRecording() == false then
+						recStatus = false
+						recButton:setLabel(" Microphone block \ncannot be activated.")
+					end
 				end
 			end
 		end
