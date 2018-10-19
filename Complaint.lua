@@ -30,14 +30,12 @@ function scene:create( event )
     local sceneGroup = self.view
 	
 	--showing a backgroynd
-	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,600,display.contentHeight)
-	bg:setFillColor( 1,1 , 1)
+	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight)
+	bg:setFillColor( 1,1 ,1)
 	
-<<<<<<< HEAD
+-- HEAD
 	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,80)
-=======
-	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,90)
->>>>>>> 702a25edea9d5299f85ea46ac1a9b0780efc7a3c
+-- 702a25edea9d5299f85ea46ac1a9b0780efc7a3c
 	bg2:setFillColor(0.823529 ,0.411765 ,0.117647)
 	sceneGroup:insert(bg)
 	sceneGroup:insert(bg2)
