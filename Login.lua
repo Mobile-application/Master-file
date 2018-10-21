@@ -10,14 +10,10 @@ local scene = composer.newScene()
 local sqlite3 = require( "sqlite3" )
 local widget = require( "widget" )
  
-
-
 -- -----------------------------------------------------------------------------------
 -- Code outside of the scene event functions below will only be executed ONCE unless
 -- the scene is removed entirely (not recycled) via "composer.removeScene()"
 -- -----------------------------------------------------------------------------------
- 
- 
  
 -- -----------------------------------------------------------------------------------
 -- Scene event functions
@@ -163,8 +159,6 @@ local function handleButtonEvent( event )
 				
 				
 				composer.gotoScene( "FirstScene" , { effect="fade", time=500 })
-				
-		
 			      
 			end
 		end
@@ -264,8 +258,3 @@ scene:addEventListener( "destroy", scene )
 -- -----------------------------------------------------------------------------------
  
 return scene
-
-
-
-
-
