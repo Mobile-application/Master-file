@@ -2,8 +2,6 @@ local composer = require( "composer" )
  
 local scene = composer.newScene()
  
-
-
 --Adding Welcome message
 --local function header()
 --display.newText("Welcome",display.contentCenterX,display.contentCenterY, "Comic Sans MS", 50)
@@ -29,7 +27,6 @@ end
 local function micro_phone()
   composer.gotoScene("Security",{effect = "slideLeft", time = 500})
 end 
-
 
 -- -----------------------------------------------------------------------------------
 -- Scene event functions
