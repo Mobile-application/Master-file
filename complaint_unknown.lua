@@ -4,9 +4,7 @@ local scene = composer.newScene()
  
 local function Home ()	
 composer.gotoScene("FirstScene",{effect = "slideLeft", time = 500})
-
 end
-
 
 
 --Adding Welcome message
@@ -175,8 +173,7 @@ end
 function scene:destroy( event )
  
     local sceneGroup = self.view
-    -- Code here runs prior to the removal of scene's view
- 
+    -- Code here runs prior to the removal of scene's view 
 end
  
  
