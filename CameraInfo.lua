@@ -12,15 +12,14 @@ local widget = require( "widget" )
 --sending user back to the Home Screen 
 local function Home ()	
 composer.gotoScene("FirstScene",{effect = "slideLeft", time = 500})
-
 end 
 
 
 --sending user back to the previous screen
 local function back ()	
 composer.gotoScene("Security",{effect = "slideRight", time = 500})
-
 end 
+
  -- ScrollView listener
 local function scrollListener( event )
  
@@ -43,9 +42,6 @@ end
 -- the scene is removed entirely (not recycled) via "composer.removeScene()"
 -- -----------------------------------------------------------------------------------
  
- 
- 
- 
 -- -----------------------------------------------------------------------------------
 -- Scene event functions
 -- -----------------------------------------------------------------------------------
@@ -62,6 +58,7 @@ function scene:create( event )
 	bg2:setFillColor(0.823529 ,0.411765 ,0.117647)
 	sceneGroup:insert(bg)
 	sceneGroup:insert(bg2)
+	
 	--title of the scene LR2
 	heading = [[Camera Privacy ]]
 	head = display.newText(heading, display.contentCenterX*1.00,display.contentCenterY*0.00,"Arial",23)
@@ -77,8 +74,6 @@ function scene:create( event )
 	sceneGroup:insert(BackImage)
 	BackImage:addEventListener("tap", back)
 	
-
-
 	
 	-- Create the widget for scroll view
 	local scrollView = widget.newScrollView(
@@ -106,14 +101,12 @@ function scene:create( event )
 	Settings > Search For App permissions > Camera > Reset Disable/Enable for applications.
 	
 	
-	
 ]]
 local text = display.newText(text,0,0,270,0,"Helvetica", 14)
 text:setTextColor(0)
 text.x = display.contentCenterX
 scrollView:insert(text)
 	-- Code here runs when the scene is first created but has not yet appeared on screen
- 
 end
  
  
