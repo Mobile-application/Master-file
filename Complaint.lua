@@ -40,7 +40,6 @@ function scene:create( event )
 	sceneGroup:insert(bg)
 	sceneGroup:insert(bg2)
 	
-	
 	--sending user back to the previous screeen icon
 	BackImage = display.newImage("back.png", 25, 2 )
 	sceneGroup:insert(BackImage)
@@ -144,4 +143,3 @@ scene:addEventListener( "destroy", scene )
 -- -----------------------------------------------------------------------------------
  
 return scene
-
