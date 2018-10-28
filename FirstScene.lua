@@ -21,10 +21,10 @@ local function newscene()
   composer.gotoScene("RightsList",{effect = "slideLeft", time = 500})
 end
 ----function to redirect user to complaint file
-local function complaint()
+local function complaintScene()
   composer.gotoScene("Complaint",{effect = "slideLeft", time = 500})
 end 
-local function micro_phone()
+local function microphone()
   composer.gotoScene("Security",{effect = "slideLeft", time = 500})
 end 
 
@@ -38,33 +38,46 @@ function scene:create( event )
     local sceneGroup = self.view
 	
 	----adding background
-	background = display.newImage( "background3.png", display.contentCenterX, display.contentCenterY )
-	sceneGroup:insert(background)
+
+    local sceneGroup = self.view
+	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight*1.25)
+	bg:setFillColor(0.823529 ,0.411765 ,0.117647)
+	sceneGroup:insert(bg)
+
+	bg2=display.newRect(display.contentCenterX,display.contentCenterY + 50, display.contentWidth, display.contentHeight)
+	bg2:setFillColor(0.35, 0.35, 0.35)
+	sceneGroup:insert(bg2)
+
+	bg3=display.newRect(display.contentCenterX, 50 , display.contentWidth, 8)
+	sceneGroup:insert(bg3)
 	
 	----Adding Welcome Message
-	Welcome = display.newText("Monitoring App",display.contentCenterX,display.contentCenterY*0.40, "Helvetica", 40)
+	Welcome = display.newText("Security App",display.contentCenterX,display.contentCenterY*0.025, "Helvetica", 40)
 	sceneGroup:insert(Welcome)
 	
 	----Displaying Legal Rights Text and icon
-	LegalRghts = display.newText("Legal Rights",display.contentCenterX*0.90,display.contentCenterY*2.0, "Helvetica", 25)
+	LegalRghts = display.newText(" Your Legal \n    Rights",display.contentCenterX,display.contentCenterY*2.03, "Helvetica", 25)
 	sceneGroup:insert(LegalRghts)
-	myImage = display.newImage("contact3.png", 140, 445 )
+	LegalRghts:addEventListener("tap", newscene)
+	myImage = display.newImage("contact3.png", display.contentCenterX, display.contentCenterY*1.75 )
 	sceneGroup:insert(myImage)
 	myImage:addEventListener("tap", newscene)
-	
+
 	----Displaying Complaint icon and text
-	Complaint = display.newText("Complaint",display.contentCenterX*1.35,display.contentCenterY*1.27, "Helvetica", 25)
-	sceneGroup:insert(Complaint)
-	myImage2 = display.newImage("contact6.png", display.contentCenterX*1.40, display.contentCenterY*1.1 )
+	complaint = display.newText("  Make a \nComplaint",display.contentCenterX,display.contentCenterY*1.335, "Helvetica", 25)
+	sceneGroup:insert(complaint)
+	complaint:addEventListener("tap", complaintScene)
+	myImage2 = display.newImage("contact6.png", display.contentCenterX, display.contentCenterY*1.05 )
 	sceneGroup:insert(myImage2)
-	myImage2:addEventListener("tap", complaint)
+	myImage2:addEventListener("tap", complaintScene)
 	
 	----Displaying security icon and text
-	Complaint = display.newText("Security\nMonitoring",display.contentCenterX*0.50,display.contentCenterY*1.0, "Helvetica", 25)
-	sceneGroup:insert(Complaint)
-	myImage2 = display.newImage("contact7.png", display.contentCenterX*0.45, display.contentCenterY*0.75)
-	sceneGroup:insert(myImage2)
-	myImage2:addEventListener("tap", micro_phone)
+	security = display.newText("  Security\nMonitoring",display.contentCenterX,display.contentCenterY*0.7, "Helvetica", 25)
+	sceneGroup:insert(security)
+	security:addEventListener("tap", microphone)
+	myImage3 = display.newImage("contact7.png", display.contentCenterX, display.contentCenterY*0.425)
+	sceneGroup:insert(myImage3)
+	myImage3:addEventListener("tap", microphone)
 
 
 	----Adding Timer in this app which display how long a user is seing the app

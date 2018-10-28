@@ -40,13 +40,11 @@ function scene:create( event )
  
     local sceneGroup = self.view
 	
-	----showing a backgroynd
-	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,display.contentHeight)
-	bg:setFillColor( 1,1 ,1)
-	
----- create HEADing
-	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,80)
----- 702a25edea9d5299f85ea46ac1a9b0780efc7a3c
+	----adding background
+	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,600,display.contentHeight)
+	bg:setFillColor( 1,1 , 1)
+	---- add heading 
+	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,90)
 	bg2:setFillColor(0.823529 ,0.411765 ,0.117647)
 	sceneGroup:insert(bg)
 	sceneGroup:insert(bg2)
@@ -66,7 +64,7 @@ function scene:create( event )
 	breaches = widget.newButton(
 	{
 		id = "breach",
-		label = "Breaches from Government \n       or private agencies",
+		label = "Breaches from Government\n       or private agencies",
 		onEvent = myeventListener,
 		fontSize = 24,
 		emboss = false,

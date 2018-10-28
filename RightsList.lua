@@ -75,18 +75,23 @@ function scene:create( event )
  
     local sceneGroup = self.view
 	
-	----showing a background
-	background = display.newImage( "background3.png", display.contentCenterX, display.contentCenterY )
-	sceneGroup:insert(background)
-	
+	----adding background
+	bg=display.newRect(display.contentCenterX,display.contentCenterY,display.contentWidth,600,display.contentHeight)
+	bg:setFillColor( 1,1 , 1)
+	---- add heading 
+	bg2=display.newRect(display.contentCenterX, 0,display.contentWidth,90)
+	bg2:setFillColor(0.823529 ,0.411765 ,0.117647)
+	sceneGroup:insert(bg)
+	sceneGroup:insert(bg2)
+
 	----sending user back to the previous screeen icon
 	BackImage = display.newImage("back.png", 25, 2 )
 	sceneGroup:insert(BackImage)
 	BackImage:addEventListener("tap", back)
 	
     ---- Code here runs when the scene is first created but has not yet appeared on screen
-	head = display.newText("Legal Rights Information", display.contentCenterX*1.05,display.contentCenterY*0.10,"Arial",20)
-	head:setFillColor(1,0,0)
+	head = display.newText(" Legal Rights\n  Information", display.contentCenterX,display.contentCenterY*0.025,"Arial",25)
+	head:setFillColor(1,1,1)
 	sceneGroup:insert(head)
 	
 	----creating buttons for all legal rights
@@ -101,8 +106,8 @@ function scene:create( event )
 		top = 80,
 		fontSize = 16.5,
 		shape = "roundedRect",
-		width = 270,
-		height = 30,
+		width = 285,
+		height = 40,
 		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
@@ -113,15 +118,15 @@ function scene:create( event )
 	Telecommunication = widget.newButton(
 	{
 		id = "Telecommunication",
-		label = "Telecommunication  (interception and  \n     access) act 1979",
+		label = "            Telecommunication\n(interception and access) act 1979",
 		onEvent = myeventListener,
 		emboss = false,
 		left = 20,
-		top = 118,
+		top = 130,
 		fontSize = 16.5,
 		shape = "roundedRect",
-		width = 290,
-		height = 30,
+		width = 285,
+		height = 40,
 		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
@@ -132,15 +137,15 @@ function scene:create( event )
 	WA = widget.newButton(
 	{
 		id = "WA",
-		label = "The Surveillance Device Act 1998 (WA)",
+		label = "The Surveillance Device Act\n              1998 (WA)",
 		onEvent = myeventListener,
 		emboss = false,
 		left = 20,
-		top = 160,
+		top = 180,
 		fontSize = 16.5,
 		shape = "roundedRect",
-		width = 300,
-		height = 30,
+		width = 285,
+		height = 40,
 		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
@@ -155,11 +160,11 @@ function scene:create( event )
 		onEvent = myeventListener,
 		emboss = false,
 		left = 20,
-		top = 200,
+		top = 230,
 		fontSize = 16.5,
 		shape = "roundedRect",
-		width = 290,
-		height = 30,
+		width = 285,
+		height = 40,
 		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
@@ -170,14 +175,15 @@ function scene:create( event )
 	NSW = widget.newButton(
 	{
 		id = "NSW",
-		label = "The Surveillance Devices Act 2007 (NSW)",
+		label = "The Surveillance Devices Act\n             2007 (NSW)",
 		onEvent = myeventListener,
 		emboss = false,
 		left = 20,
-		top = 240,fontSize = 16.5,
+		top = 280,
+		fontSize = 16.5,
 		shape = "roundedRect",
-		width = 320,
-		height = 30,
+		width = 285,
+		height = 40,
 		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
@@ -188,15 +194,15 @@ function scene:create( event )
 	NT = widget.newButton(
 	{
 		id = "NT",
-		label = "The Surveillance Devices Act 2007 (NT)",
+		label = "The Surveillance Devices Act\n                2007 (NT)",
 		onEvent = myeventListener,
 		emboss = false,
 		left = 20,
-		top = 280,
+		top = 330,
 		fontSize = 16.5,
 		shape = "roundedRect",
-		width = 300,
-		height = 30,
+		width = 285,
+		height = 40,
 		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
@@ -207,15 +213,15 @@ function scene:create( event )
 	Qld = widget.newButton(
 	{
 		id = "Qld",
-		label = "The Invasion of Privacy Act 1971 (Qld)",
+		label = "The Invasion of Privacy Act\n              1971 (Qld)",
 		onEvent = myeventListener,
 		emboss = false,
 		left = 20,
-		top = 320,
+		top = 380,
 		fontSize = 16.5,
 		shape = "roundedRect",
-		width = 290,
-		height = 30,
+		width = 285,
+		height = 40,
 		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
@@ -226,15 +232,15 @@ function scene:create( event )
 	Tas = widget.newButton(
 	{
 		id = "Tas",
-		label = "The Surveillance Devices Act 1991 (Tas)",
-		onEvent = myeventListener,
+		label = "The Surveillance Devices Act\n                 1991 (Tas)",
+		onEvent = myeventListener,    
 		emboss = false,
 		left = 20,
-		top = 360,
+		top = 430,
 		fontSize = 16.5,
 		shape = "roundedRect",
-		width = 300,
-		height = 30,
+		width = 285,
+		height = 40,
 		fillColor = { default = { 1, 0.7, 0.5}, over = { 1, 0.7, 0.5} }
 	}
 	)
